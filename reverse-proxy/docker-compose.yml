@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    container_name: c_server
+    container_name: c_server1
     build:
       context: ./app
     restart: unless-stopped  
@@ -10,7 +10,7 @@ services:
       - 3000:3000 
     volumes:
       - ./app:/usr/src/app
-      - /usr/src/app/node_modules 
+      - server:/usr/src/app/node_modules 
     networks:
       - backend   
 
@@ -25,6 +25,9 @@ services:
       - server
     networks:
       - backend   
+
+volumes:
+  server:
 
 networks:
   backend:

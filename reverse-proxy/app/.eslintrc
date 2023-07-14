@@ -4,6 +4,11 @@
     "plugins": ["prettier"],
     "parserOptions": { "ecmaVersion": 2016, "sourceType": "module" },
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     }
 }
