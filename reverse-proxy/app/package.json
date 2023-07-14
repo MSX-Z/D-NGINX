@@ -4,9 +4,9 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
-    "dev": "nodemon -L ./src/app.ts",
-    "start": "npm run build && node dist/app.js",
+    "build": "rimraf ./dist && tsc && tsconfig-paths",
+    "dev": "nodemon",
+    "start": "npm run build && ts-node -r tsconfig-paths/register dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"

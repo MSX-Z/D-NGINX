@@ -1,6 +1,8 @@
 {
-    "watch": ["src"],
+    "watch": ["src/**/*.ts"],
     "ext": ".ts, .js, .yaml",
     "ignore": ["src/**/*.spec.ts"],
-    "exec": "ts-node ./src/app.ts"
+    "exec": "ts-node src/app.ts",
+    "legacyWatch": true,
+    "verbose": true
   }
