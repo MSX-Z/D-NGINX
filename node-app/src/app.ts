@@ -1,10 +1,12 @@
+import 'dotenv/config';
 import express, { Request, Response } from 'express';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const appID = process.env.APPID || "0001";
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World! Hello');
+  res.send(`The running is appId: ${appID}`);
 });
 
 app.listen(port, () => {

@@ -1,0 +1,72 @@
+version: '3'
+services:
+  server1:
+    build:
+      context: ../node-app
+    container_name: c_server1  
+    ports:
+      - "3001:3000"
+    # for dev 
+    volumes:
+      - ../node-app:/usr/src/app
+      - server1:/usr/src/app/node_modules   
+    environment:
+      - APPID=0001 
+    networks:
+      - backend  
+    command: ["npm", "start"]
+   
+  server2:
+    build:
+      context: ../node-app
+    container_name: c_server2
+    ports:
+      - "3002:3000"
+    # for dev   
+    volumes:
+      - ../node-app:/usr/src/app
+      - server2:/usr/src/app/node_modules  
+    environment:
+      - APPID=0002
+    networks:
+      - backend  
+    command: ["npm", "start"]   
+
+  server3:
+    build:
+      context: ../node-app
+    container_name: c_server3
+    ports:
+      - "3003:3000"
+    # for dev   
+    volumes:
+      - ../node-app:/usr/src/app
+      - server3:/usr/src/app/node_modules  
+    environment:
+      - APPID=0003
+    networks:
+      - backend
+    command: ["npm", "start"]    
+
+  nginx: 
+    build:
+      context: ./
+    container_name: c_nginx  
+    ports:
+      - "80:80"
+    depends_on: 
+      - server1
+      - server2
+      - server3
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - backend  
+
+volumes:
+  server1:
+  server2:
+  server3:
+
+networks:
+  backend:
