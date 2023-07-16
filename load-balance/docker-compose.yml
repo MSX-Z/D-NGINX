@@ -3,6 +3,7 @@ services:
   server1:
     build:
       context: ../node-app
+      dockerfile: Dockerfile
     container_name: c_server1  
     ports:
       - "3001:3000"
@@ -19,6 +20,7 @@ services:
   server2:
     build:
       context: ../node-app
+      dockerfile: Dockerfile
     container_name: c_server2
     ports:
       - "3002:3000"
@@ -35,6 +37,7 @@ services:
   server3:
     build:
       context: ../node-app
+      dockerfile: Dockerfile
     container_name: c_server3
     ports:
       - "3003:3000"

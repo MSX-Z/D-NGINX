@@ -5,6 +5,7 @@ services:
     container_name: c_server
     build:
       context: ../node-app
+      dockerfile: Dockerfile
     restart: unless-stopped  
     ports:
       - "3000:3000"
