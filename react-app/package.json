@@ -46,7 +46,8 @@
   "overrides": {
     "react-scripts": {
       "@svgr/webpack": "^6.5.1"
-    }
+    },
+    "semver": "^7.5.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
