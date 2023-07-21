@@ -5,7 +5,7 @@
 Run the following command
 
 ```bash
-  cd /load-balance | /reverse-proxy
+  cd /load-balance | /reverse-proxy | /web-server
   docker-compose up
 ```
 
